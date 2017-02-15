@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215224431) do
+ActiveRecord::Schema.define(version: 20170215234802) do
+
+  create_table "colleges", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "request_transcripts",   default: false
+    t.boolean  "pay_transcript_fee",    default: false
+    t.boolean  "request_scores",        default: false
+    t.boolean  "pay_score_request_fee", default: false
+    t.boolean  "request_rec_letters",   default: false
+    t.boolean  "pay_app_fee",           default: false
+    t.boolean  "submit_application",    default: false
+    t.datetime "college_visit"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
