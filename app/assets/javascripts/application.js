@@ -15,4 +15,4 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require cable
-//= require_tree .
+
