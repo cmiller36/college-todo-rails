@@ -72,6 +72,7 @@
           <tr class="info">
             <th>Story Title</th>
             <th>Date</th>
+            <th># of Comments</th>
             <th colspan="2"></th>
           </tr>
         </thead>
@@ -81,6 +82,7 @@
           <tr>
             <td data-title="Story Title"><%= link_to s.title.capitalize, s %></td>
             <td data-title="Date"><%= s.created_at.strftime("%a %m-%d-%Y") %></td>
+            <td data-title="# of Comments"><%= s.comments.count %></td>
             <td><%= link_to edit_story_path(s), :class => "btn btn-info btn-xs" do%>
                   <span class="glyphicon glyphicon-pencil"></span>
                 <% end %>
@@ -132,3 +134,35 @@
  
   </div> <!-- /row -->
 </div> <!-- /container -->
+<br>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @user.username.capitalize %> </h2> has commented on the following stories:</h3>
+  </div>
+  <div class="table-responsive">
+  
+   <table class="table table-bordered table-hover">
+    
+        <thead>
+          <tr class="info">
+            <th>Story Title</th>
+          </tr>
+        </thead>
+
+        <tbody>
+       <% @user.comments.each do |comment| %>
+          <tr>
+            <td data-title="Story Title"><%= link_to comment.story.title, story_path(comment.story) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+    </table>
+    </div>
+  </div>
+    
+  </div>
+</div>
+</div>
