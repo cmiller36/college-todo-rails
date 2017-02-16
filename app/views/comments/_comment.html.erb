@@ -1,1 +1,15 @@
-_comment.html.erb
+ <h4>Comments</h4>
+        <ol class="list-unstyled">
+            <% @story.comments.each do |comment| %>
+              <li>
+                <strong><%= comment.user.username.capitalize %></strong> : <%=  comment.content %> <%= time_ago_in_words(comment.created_at) %>
+                 
+                <% if current_user && current_user.id == comment.user.id %>
+                <%= link_to story_comment_path(comment.story, comment), :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <span class="glyphicon glyphicon-remove"></span>
+                <% end %>
+                <% end %>
+               
+              </li>
+            <% end %>
+            </ol>
