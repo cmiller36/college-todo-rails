@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :stories
-  resources :colleges
   root "static#home"
   
   devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
