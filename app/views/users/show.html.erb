@@ -55,6 +55,7 @@
 </div>
 <br>
 
+
 <div class="container">
   <div class="row">
 
@@ -97,7 +98,36 @@
     <%= link_to 'New Story', new_story_path, :class => "btn btn-primary btn-md" %>
   </div>
 
+  <div class="col-md-6">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @user.username.titleize %>'s Upcoming College Visits</h3>
+  </div>
+  <div class="table-responsive">
   
+   <table class="table table-bordered table-hover">
+    
+        <thead>
+          <tr class="info">
+            <th>College Name</th>
+            
+            <th>Countdown</th>
+          </tr>
+        </thead>
+
+        <tbody>
+       <% current_user.colleges.select{|c| c.college_visit >= Date.current}.each do |visit| %>
+          <tr>
+            <td data-title="College Name"><%= visit.name.capitalize %></td>
+            <td data-title="Countdown"><%= ((visit.college_visit.to_time - Time.now)/1.day).ceil %> days</td>
+          </tr>
+        <% end %>
+        </tbody>
+    </table>
+    </div>
+  </div>
+    
+  </div>
 
  
   </div> <!-- /row -->
