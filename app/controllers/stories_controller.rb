@@ -20,6 +20,8 @@ class StoriesController < ApplicationController
   # GET /stories/1.json
   def show
    @tags = @story.tags
+    @comment = Comment.new
+    @comments = @story.comments.order('created_at')
   end
 
   # GET /stories/new
