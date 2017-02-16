@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :comments
+
   root "static#home"
   
   devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :colleges
 
-  resources :stories
+  resources :stories do 
+    resources :comments
+  end
   
   resources :tags
 
