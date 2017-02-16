@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216021614) do
+ActiveRecord::Schema.define(version: 20170216030246) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20170216021614) do
     t.boolean  "pay_app_fee",           default: false
     t.boolean  "submit_application",    default: false
     t.datetime "college_visit"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "story_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["story_id"], name: "index_comments_on_story_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "stories", force: :cascade do |t|
