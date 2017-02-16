@@ -34,6 +34,17 @@
           </div>
 
         </div>
+      <div class="col-sm-3 offset-sm-1 blog-sidebar">
+        
+          <div class="sidebar-module">
+            <h4>Tags</h4>
+            <ol class="list-unstyled">
+            <% @tags.each do |tag| %>
+              <li><%= link_to tag.name,tag %></li>
+            <% end %>
+            </ol>
+          </div>
+      </div><!-- /.blog-sidebar -->
 
 
      </div><!-- /.row -->
