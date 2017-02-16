@@ -1,1 +1,10 @@
-edit.html.erb
+<div class="container">
+ 
+    <h2>Edit Story:</h2>
+
+    <%= render 'form', story: @story %>
+
+<div>
+
+<%= link_to 'Show', @story %> |
+<%= link_to 'Back', stories_path %>
