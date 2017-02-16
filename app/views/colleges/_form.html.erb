@@ -1,0 +1,49 @@
+<%= form_for(@college) do |f| %>
+  <% if @college.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@college.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+      <ul>
+      <% @college.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+
+
+    <%= f.label "College Name" %>
+    <%= f.text_field :name %><br>
+
+  
+    <%= f.label "Submit Application" %>
+    <%= f.check_box :submit_application, as: :boolean %><br>
+
+    <%= f.label "Pay Application Fee"%>
+    <%= f.check_box :pay_app_fee, as: :boolean %><br>
+
+    <%= f.label "Request Test Scores" %>
+    <%= f.check_box :request_scores, as: :boolean %><br>
+
+    <%= f.label "Pay Score Request Fee" %>
+    <%= f.check_box :pay_score_request_fee, as: :boolean %><br>
+
+    <%= f.label "Request Transcripts" %>
+    <%= f.check_box :request_transcripts, as: :boolean %><br>
+
+    <%= f.label "Pay Transcript Fee" %>
+    <%= f.check_box :pay_transcript_fee, as: :boolean %><br>
+
+    <%= f.label "Request Recommendation Letters" %>
+    <%= f.check_box :request_rec_letters, as: :boolean %><br>
+
+    <%= f.label "College Visit" %>
+    <%= f.datetime_select :college_visit, :start_year => Date.today.year, :ampm => true, :minute_step => 15, :start_hour => 7, :end_hour => 20 %><br>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit %>
+  </div>
+<% end %>

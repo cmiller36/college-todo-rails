@@ -1,0 +1,21 @@
+i<p id="notice"><%= notice %></p>
+
+
+
+    <table class="table table-bordered table-hover">
+    
+        <thead>
+          <tr class="info">
+            <th>College Name</th>
+           
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @current_user.colleges.each do |college| %>
+          <tr>
+            <td data-title="College Name"><%=link_to college.name, college %></td>
+          </tr>
+          <% end %>
+        </tbody>
+    </table>
