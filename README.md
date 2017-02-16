@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple app for college-bound users. Users can keep track of the most essential tasks when getting ready to apply to college.
 
-Things you may want to cover:
 
-* Ruby version
+* Users add colleges they are applying to
 
-* System dependencies
+* Checklist of most essential task for applying to colleges
 
-* Configuration
+* Users check or mark off tasks once completed
 
-* Database creation
+* Add college visit date
 
-* Database initialization
+* Share stories 
 
-* How to run the test suite
+* Comment on stories
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
