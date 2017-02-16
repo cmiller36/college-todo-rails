@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
   # GET /stories.json
   def index
     @stories = Story.order(created_at: :desc).page(params[:page])
-    
+    @tags = Tag.all
     respond_to do |format|
         format.html { render :index }
         format.json { render json: @stories }
@@ -19,8 +19,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-    
-
+   @tags = @story.tags
   end
 
   # GET /stories/new
@@ -29,7 +28,9 @@ class StoriesController < ApplicationController
       redirect_to new_user_session_path, notice: "You must be logged in to create a story"
     else current_user.username == params[:user_id]
       @story = Story.new
-      
+      @story.tags.build
+      @story.tags.build
+      @story.tags.build
     end
   end
 
@@ -86,7 +87,7 @@ class StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:title, :content, :user_id)
+      params.require(:story).permit(:title, :content, :user_id, :tag_ids => [], :tags_attributes => [:name])
     end
 
     def owned_story  
