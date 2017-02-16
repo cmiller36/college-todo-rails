@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @user.username.titleize %>'s College Checklist</h3>
+  </div>
+  <div class="table-responsive">
+  
+   <table class="table table-bordered table-hover">
+    
+    <thead>
+    <tr class="info">
+      <th>College Name</th>
+      <th>Submit application</th>
+      <th>Pay application fee</th>
+      <th>Request scores</th>
+      <th>Pay score</th>
+      <th>Request transcripts</th>
+      <th>Pay transcript</th>
+      <th>Rec letters</th>
+      <th>College visit</th>
+      <th colspan="2"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <% @current_user.colleges.each do |c| %>
+      <tr>
+        <td data-title="College Name"><%= c.name %></td>
+        <td data-title="Submit Application"><%= check_box_tag :submit_application, "1", c.submit_application, disabled: true %></td>
+        <td data-title="Pay Application"><%= check_box_tag :pay_app_fee, "1", c.pay_app_fee, disabled: true %></td>
+        <td data-title="Request scores"><%= check_box_tag :request_scores, "1", c.request_scores, disabled: true %></td>
+        <td data-title="Pay Score"><%= check_box_tag :pay_score_request_fee, "1", c.pay_score_request_fee, disabled: true %></td>
+        <td data-title="Request transcripts"><%= check_box_tag :request_transcripts, "1", c.request_transcripts, disabled: true %></td>
+        <td data-title="Pay transcript"><%= check_box_tag :pay_transcript_fee, "1", c.pay_transcript_fee, disabled: true %></td>
+        <td data-title="Rec letters"><%= check_box_tag :request_rec_letters, "1", c.request_rec_letters, disabled: true %></td>
+        <td data-title="College visit"><%= c.college_visit.strftime("%a %m/%d/%Y %H:%M%p") %></td>
+        <td><%= link_to edit_college_path(c), :class => "btn btn-info btn-xs" do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+            <% end %>
+        </td>
+        <td><%= link_to c, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+    </div>
+  </div>
+    <%= link_to 'New College', new_college_path, :class => "btn btn-primary btn-md" %>
+</div>
+</div>
+<br>

@@ -8,7 +8,11 @@
                     <h1>College Todo Checklist</h1>
                     <hr class="small">
                     <span class="subheading">
-
+                        <% if current_user %>
+                            <%= link_to 'My Profile', user_path(current_user), class: "btn btn-primary btn-lg" %>
+                        <% else %>
+                            <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary btn-lg" %>
+                        <% end %>
                        
                     </span>
                 </div>
