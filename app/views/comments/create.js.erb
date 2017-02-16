@@ -1,1 +1,2 @@
-create.js.erb
+$("#comments-section").append("<%= j render @comment %>"");
+$('#comment_content_<%= @story.id %>').val('')

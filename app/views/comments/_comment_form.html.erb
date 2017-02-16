@@ -1,0 +1,15 @@
+
+  
+  <%= form_for [@story, @comment], {role: "form"} do |f| %>
+ 
+  </div>
+          <div class="field">
+            <%= f.label "Add a Comment:" %>
+            <%= f.text_field :content, class: "form-control", placeholder: 'Add a comment...', id: "comment_content_#{@story.id}" %>
+          </div>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :story_id, value: @story.id %>
+          <div class="actions">
+            <%= f.submit "Submit", class: "btn btn-sm btn-primary"  %>
+          </div>
+  <% end %>
