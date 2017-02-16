@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h3 class="panel-title pull-left">Tag: <%= @tag.name.capitalize %></h3>
+      </div>
+      <div class="list-group">
+        <div class="list-group-item">
+          <ul class="list-group list-group-flush">
+              <% @tag.stories.each do |story| %>
+              <li class="list-group-item"><%= link_to story.title.capitalize, story_path(story) %> by <%= story.user.username.capitalize %></li>
+              <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+      <%= link_to 'Back to Stories', stories_path %>
+
+  </div><!-- /.col-sm-6 -->
+
+</div><!-- /.container -->
