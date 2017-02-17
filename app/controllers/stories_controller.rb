@@ -5,8 +5,7 @@ class StoriesController < ApplicationController
   before_action :owned_story, only: [:edit, :update, :destroy]
   
 
-  # GET /stories
-  # GET /stories.json
+ 
   def index
     @stories = Story.order(created_at: :desc).page(params[:page])
     @tags = Tag.all
@@ -16,15 +15,14 @@ class StoriesController < ApplicationController
     end
   end
 
-  # GET /stories/1
-  # GET /stories/1.json
+
   def show
    @tags = @story.tags
     @comment = Comment.new
     @comments = @story.comments.order('created_at')
   end
 
-  # GET /stories/new
+
   def new
     if !current_user
       redirect_to new_user_session_path, notice: "You must be logged in to create a story"
@@ -36,12 +34,11 @@ class StoriesController < ApplicationController
     end
   end
 
-  # GET /stories/1/edit
+ 
   def edit
   end
 
-  # POST /stories
-  # POST /stories.json
+
   def create
     @story = Story.new(story_params)
     @story.user = current_user
@@ -57,8 +54,7 @@ class StoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /stories/1
-  # PATCH/PUT /stories/1.json
+ 
   def update
     respond_to do |format|
       if @story.update(story_params)
@@ -71,8 +67,7 @@ class StoriesController < ApplicationController
     end
   end
 
-  # DELETE /stories/1
-  # DELETE /stories/1.json
+ 
   def destroy
     @story.destroy
     respond_to do |format|
@@ -84,7 +79,7 @@ class StoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_story
-      @story = Story.find(params[:id])
+      @story = Story.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

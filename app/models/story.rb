@@ -9,4 +9,8 @@ class Story < ApplicationRecord
   validates :user_id, presence: true
 
   accepts_nested_attributes_for :tags, reject_if: :all_blank
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+  
 end

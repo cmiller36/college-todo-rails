@@ -47,6 +47,8 @@ gem "font-awesome-rails"
 
 gem 'kaminari'
 
+gem 'friendly_id'
+
 gem 'faker'
 
 group :development, :test do
