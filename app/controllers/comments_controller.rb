@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :set_story, only: [:create]
+  
 
   def create
     @comment = Comment.new(comment_params)
+    @story = Story.find_by(id: @comment.story_id)
     @comment.user_id == current_user.id
 
     if @comment.save
@@ -35,7 +36,7 @@ class CommentsController < ApplicationController
   end
 
   def set_story  
-    @story = Story.find(params[:story_id])
+    @story = Story.friendly.find(params[:id])
   end
 
 end
