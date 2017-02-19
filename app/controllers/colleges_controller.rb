@@ -1,4 +1,5 @@
 class CollegesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_college, only: [:show, :edit, :update, :destroy]
   before_action :owned_college, only: [:edit, :update, :destroy]
 
