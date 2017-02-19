@@ -7,11 +7,12 @@ class CollegesController < ApplicationController
   end
 
   def show
+    
   end
 
   def new
     if !current_user
-      redirect_to new_user_session_path, alert: "You must be logged in to create a story"
+      redirect_to new_user_session_path, notice: "You must be logged in to create a story"
     else current_user.username == params[:user_id]
       @college = College.new
     end

@@ -4,7 +4,6 @@ class UsersController < ApplicationController
  
   def index
     @users = User.all
-    authorize User
   end
 
   def show
@@ -12,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    authorize @user
     session.clear if @user == current_user
     @user.destroy
     redirect_to request.referrer || root_path

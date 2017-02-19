@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
         format.js {}
       end
     else
-      flash[:alert] = "Check the comment form, something went wrong."
+      flash[:notice] = "Check the comment form, something went wrong."
       render root_path
     end
   end
@@ -33,10 +33,6 @@ class CommentsController < ApplicationController
 
   def comment_params  
     params.require(:comment).permit(:content,:user_id, :story_id)
-  end
-
-  def set_story  
-    @story = Story.friendly.find(params[:id])
   end
 
 end

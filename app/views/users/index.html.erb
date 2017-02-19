@@ -1,1 +1,25 @@
-index.html.erb
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+       
+        <h3 class="panel-info pull-left">Users:</h3>
+       
+      </div>
+      <div class="list-group">
+        <div class="list-group-item">
+          <ul class="list-group list-group-flush">
+            <% @users.each do |u| %>
+              <li class="list-group-item"><%= u.username.capitalize %></li>
+              <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.col-sm-6 -->
+
+</div><!-- /.container -->
