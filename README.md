@@ -2,6 +2,7 @@
 
 Rails app for college-bound users. Users can keep track of the most essential tasks when getting ready to apply to college.
 
+https://college-todo-rails.herokuapp.com/
 
 * Users add colleges they are applying to
 
