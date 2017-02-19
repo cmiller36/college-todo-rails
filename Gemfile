@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'dotenv-rails'
 
 gem 'devise'
-gem 'pundit'
+
 gem 'omniauth-facebook'
 gem 'figaro'
 
