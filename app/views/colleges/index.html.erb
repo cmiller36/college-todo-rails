@@ -34,14 +34,15 @@
 <br> 
 
 <div class="container">
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <div class="panel panel-primary bootcards-richtext">
       <div class="panel-heading">
          <h3 class="panel-title ">Most Popular Colleges</h3>
       </div>
       <div class="panel-body">
         <% College.pop_colleges.each do |college| %>
-        <h4><%= college[0] %></h4>
+        <h4><%= college[0] %></h4><p><%= college[1] %> applying</p>
+        <br>
         <% end %>
       </div>
     </div>
