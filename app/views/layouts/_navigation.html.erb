@@ -44,7 +44,16 @@
             
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li>Welcome <%= current_user.username.titleize %></li>
+          <li class="navbar-text">Welcome <%= current_user.username.titleize %></li>
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">User Settings<b class="caret"></b></a>
+            <ul role="menu" class="dropdown-menu">
+            <li><%= link_to "Edit Profile", edit_user_registration_path(current_user)
+               %></li>
+            <li><%= link_to "Delete Account", registration_path(current_user),
+            data: { confirm: "Are you sure?" }, method: :delete %></li>
+            </ul>
+        </li>
           <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
         </ul>
         <% else %>
