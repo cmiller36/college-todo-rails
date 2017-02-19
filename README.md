@@ -1,17 +1,17 @@
 # README
 
-Simple app for college-bound users. Users can keep track of the most essential tasks when getting ready to apply to college.
+Rails app for college-bound users. Users can keep track of the most essential tasks when getting ready to apply to college.
 
 
 * Users add colleges they are applying to
 
-* Checklist of most essential task for applying to colleges
+* Checklist for the most essential tasks (related to applying to colleges)
 
 * Users check or mark off tasks once completed
 
 * Add college visit date
 
-* Share stories 
+* Share stories and experiences 
 
 * Comment on stories
 
