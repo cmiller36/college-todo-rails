@@ -12,5 +12,14 @@ class Story < ApplicationRecord
 
   extend FriendlyId
   friendly_id :title, use: :slugged
+
+
+  def tags_attributes=(tag_attributes)
+    tag_attributes.values.each do |tag_attribute|
+      tag = Tag.find_or_create_by(tag_attribute)
+      self.story_tags.build(tag: tag)
+    end
+  end
+
   
 end
