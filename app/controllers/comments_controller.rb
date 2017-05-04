@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   
-
   def create
     @comment = Comment.new(comment_params)
     @story = Story.find_by(id: @comment.story_id)
@@ -12,7 +11,7 @@ class CommentsController < ApplicationController
         format.js {}
       end
     else
-      flash[:notice] = "Check the comment form, something went wrong."
+      flash[:notice] = "Oh no, something went wrong!"
       render root_path
     end
   end
