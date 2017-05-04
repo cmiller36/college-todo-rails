@@ -28,9 +28,7 @@ class StoriesController < ApplicationController
       redirect_to new_user_session_path, notice: "You must be logged in to create a story"
     else current_user.username == params[:user_id]
       @story = Story.new
-      @story.tags.build
-      @story.tags.build
-      @story.tags.build
+      3.times { @story.tags.build }
     end
   end
 
