@@ -1,7 +1,7 @@
 class College < ApplicationRecord
   belongs_to :user
 
-  validates_presence_of :name
+  validates :name, presence: true
   validate :college_visit_cannot_be_in_the_past
 
   extend FriendlyId
