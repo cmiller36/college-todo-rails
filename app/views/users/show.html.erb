@@ -82,7 +82,7 @@
           <tr>
             <td data-title="Story Title"><%= link_to s.title.capitalize, s %></td>
             <td data-title="Date"><%= s.created_at.strftime("%a %m-%d-%Y") %></td>
-            <td data-title="# of Comments"><%= s.comments.count %></td>
+            <td data-title="# of Comments"><span class="badge"><%= s.comments.count %></span></td>
             <td><%= link_to edit_story_path(s), :class => "btn btn-info btn-xs" do%>
                   <span class="glyphicon glyphicon-pencil"></span>
                 <% end %>
