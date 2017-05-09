@@ -5,13 +5,21 @@ class StoriesController < ApplicationController
   before_action :owned_story, only: [:edit, :update, :destroy]
   
 
- 
   def index
     @stories = Story.order(created_at: :desc).page(params[:page])
     @tags = Tag.all
     respond_to do |format|
         format.html { render :index }
         format.json { render json: @stories }
+    end
+  end
+
+  def most_comments
+    @stories = Story.most_comments.page(params[:page])
+    @tags = Tag.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @stories }
     end
   end
 
