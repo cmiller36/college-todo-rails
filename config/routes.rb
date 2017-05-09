@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :colleges
 
+  get '/stories/most_comments' => 'stories#most_comments', as: :most_comments
+
   resources :stories do 
     resources :comments
   end
