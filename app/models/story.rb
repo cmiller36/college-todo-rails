@@ -9,8 +9,8 @@ class Story < ApplicationRecord
   validates :content, presence: true
   validates :user_id, presence: true
 
-  accepts_nested_attributes_for :tags, reject_if: :all_blank
-
+  scope :most_comments, -> { left_joins(:comments).group("stories.id").order("count(comments.id) DESC") }
+  
   extend FriendlyId
   friendly_id :title, use: :slugged
 
@@ -22,5 +22,4 @@ class Story < ApplicationRecord
     end
   end
 
-  
 end
