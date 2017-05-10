@@ -41,7 +41,7 @@
       </div>
       <div class="panel-body">
         <% College.pop_colleges.each do |college| %>
-        <h4><%= college[0] %></h4><p><%= college[1] %> applying</p>
+        <h4><%= college[0] %></h4><p><span class="badge"><%= college[1] %></span> applying</p>
         <br>
         <% end %>
       </div>
