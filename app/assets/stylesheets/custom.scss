@@ -1,3 +1,17 @@
 .nav.navbar-nav.navbar-right li {
   color: #35b084;  
 }
+
+/* forms */
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.footer {
+  text-align: center;
+}
