@@ -134,35 +134,5 @@
  
   </div> <!-- /row -->
 </div> <!-- /container -->
-<br>
-<div class="container">
-<div class="row">
-<div class="col-md-6">
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= @user.username.titleize %> </h2> has commented on the following stories:</h3>
-  </div>
-  <div class="table-responsive">
-  
-   <table class="table table-bordered table-hover">
-    
-        <thead>
-          <tr class="info">
-            <th>Story Title</th>
-          </tr>
-        </thead>
 
-        <tbody>
-       <% @user.comments.each do |comment| %>
-          <tr>
-            <td data-title="Story Title"><%= link_to comment.story.title, story_path(comment.story) %></td>
-          </tr>
-        <% end %>
-        </tbody>
-    </table>
-    </div>
-  </div>
-    
-  </div>
-</div>
 </div>
