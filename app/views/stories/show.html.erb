@@ -1,23 +1,22 @@
 <p id="notice"><%= notice %></p>
+
 <% content_for :js do %>
   <%= javascript_include_tag 'story_show' %>
   <%= javascript_include_tag 'comments' %> 
-<% end %>
-
+<% end %> 
  <div class="container">
 
       <div class="row">
 
         <div class="col-sm-8 blog-main">
 
-          <div class="blog-post">
+          <div id="showstory">
             
-            <h2 class="blog-post-title"><%= @story.title.capitalize %></h2>
-            <p class="blog-post-meta">by <%= @story.user.username.capitalize %>  - <%= @story.created_at.strftime("%a %m-%d-%Y") %></p>
-            <p class="blog-post-content"><%= @story.content %></p>
-            <br>
+           
 
-              <%= link_to 'Back', stories_path, :class => "btn btn-default btn-sm" %> |
+          </div><!-- /.blog-post-show -->
+
+          <%= link_to 'Back', stories_path, :class => "btn btn-default btn-sm" %> |
               <% if current_user && current_user.id == @story.user.id %>
                 <%= link_to edit_story_path(@story), :class => "btn btn-info btn-sm" do %>
                   <span class="glyphicon glyphicon-pencil"></span>
@@ -27,9 +26,6 @@
                 <% end %>
               <% end %>
             <br><br>
-
-
-          </div><!-- /.blog-post -->
          
 
         </div><!-- /.blog-main -->
@@ -50,10 +46,10 @@
         
     </div> <!-- /.container -->
 
-    <div class="container">
-  <div class="col-sm-8">
-       <div class="well well-white" id="comments-section">
-          <%= render partial: 'comments/comment' %>
+  <div class="container">
+    <div class="col-sm-8">
+       <div class="well well-white" id="commentSection">
+        <%= render partial: 'comments/comment' %>
       </div>
 
       <div id="commentForm">
