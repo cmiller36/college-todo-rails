@@ -28,6 +28,10 @@ class StoriesController < ApplicationController
    @tags = @story.tags
     @comment = Comment.new
     @comments = @story.comments.order('created_at')
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @story }
+    end
   end
 
 
