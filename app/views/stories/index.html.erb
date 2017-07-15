@@ -1,44 +1,34 @@
 <p id="notice"><%= notice %></p>
 
+  <%= javascript_include_tag "story_index" %>
 
     <div class="blog-header">
       <div class="container">
         <h1 class="blog-title">Stories</h1>
       </div>
     </div>
-
+   
     <div class="container">
 
       <div class="row">
 
         <div class="col-sm-8 blog-main">
+          <ul class="nav nav-pills">
+            <li role="presentation"><%= link_to "Sort by most recent", stories_path %></li>
+            <li role="presentation"><%= link_to "Sort by most comments", most_comments_path, :class => "most_comments" %></li>
+          </ul>
 
-          <div class="blog-post">
-            <ul class="nav nav-pills">
-              <li role="presentation"><%= link_to "Sort by most recent", stories_path %></li>
-              <li role="presentation"><%= link_to "Sort by most comments", most_comments_path %></li>
-            </ul>
+        <div class="blog-post">
             <%= page_entries_info @stories %>
             <%= paginate @stories, window: 2 %>
+            <div class="stories"> 
+            </div>
+        </div> <!-- /.blog-post -->
+  
+        </div> <!-- /.col-sm-8 blog-main -->
 
-            <% @stories.each do |story| %>
-            <h2 class="blog-post-title"><%= link_to story.title.titleize, story %></h2>
-            <p class="blog-post-meta">by <%= story.user.username.capitalize %>  - <%= story.created_at.strftime("%a %m-%d-%Y") %> - <span class="badge"><%= story.comments.count %> comments</span></p>
-            <p class="blog-post-content"><%= truncate(story.content, length: 250) %> <%= link_to "Read More", story_path(story) %></p>
-            
-              <% if current_user && current_user.id == story.user.id %>
-                <%= link_to edit_story_path(story), :class => "btn btn-default btn-xs" do %>
-                  <span class="glyphicon glyphicon-pencil"></span>
-                <% end %>
-                <%= link_to story, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <span class="glyphicon glyphicon-trash"></span>
-                <% end %>
-              <% end %>
-            <% end %>
-           <br>
-          </div>
 
-        </div>
+
       <div class="col-sm-3 offset-sm-1 blog-sidebar">
           <div class="sidebar-module">
              <%= link_to 'New Story', new_story_path, :class => "btn btn-info btn-md" %>
