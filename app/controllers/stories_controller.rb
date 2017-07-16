@@ -9,8 +9,8 @@ class StoriesController < ApplicationController
     @stories = Story.order(created_at: :desc).page(params[:page])
     @tags = Tag.all
     respond_to do |format|
-        format.html { render :index }
         format.json { render json: @stories }
+        format.html { render :index }
     end
   end
 
@@ -18,8 +18,8 @@ class StoriesController < ApplicationController
     @stories = Story.most_comments.page(params[:page])
     @tags = Tag.all
     respond_to do |format|
-      format.html { render :index }
       format.json { render json: @stories }
+      format.html { render :index }
     end
   end
 
