@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html { redirect_to @story }
-        format.js {}
+        format.json { render json: @comment, status: 201 }
       end
     else
-      flash[:notice] = "Oh no, something went wrong!"
+      flash[:notice] = "Oh no, something went wrong. Please try again!"
       render root_path
     end
   end
@@ -24,7 +24,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
         flash[:notice] = 'Comment deleted.'
         format.html {redirect_to @story}
-        format.js {}
     end 
   end
 
