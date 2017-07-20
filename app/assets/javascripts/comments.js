@@ -5,18 +5,24 @@ var Comment = function(attributes) {
   this.created_at = attributes.created_at;
 };
 
+Comment.prototype.deleteLink = function() {
+  var output = '<a class="btn btn-danger btn-xs" data-confirm="Are you sure you want to delete this comment?" rel="nofollow" data-method="delete" href="/comments/' + this.id + '">';
+    output += "x";
+    output += '</a>';
+  return output;
+}
 
 Comment.prototype.renderComment = function() {
   var html = "";
   html += '<ol class="list-unstyled" id="comment-" + comment.id >';
-  html += '<li><strong>' +  this.user.username + '</strong>' + " " + ':' + " " + '<p>' + this.content + " " + this.created_at + '</p></li>';
+  html += '<li><strong>' +  this.user.username + '</strong>' + " " + ':' + " " + '<p>' + this.content + " " + this.created_at + this.deleteLink() +'</p></li>';
   html += '</ol>';
   return html;
 };
 
 
  var attachListener = function() {
-    $("form#new_comment").on("submit", function(event) {
+    $(document).on('submit', 'form#new_comment', function(event){
     event.preventDefault();
     var $form = $(this);
     var action = $form.attr("action");
@@ -36,6 +42,5 @@ Comment.prototype.renderComment = function() {
 }
   
 $(document).ready(function() {
-  getComment();
   attachListener();
 });
