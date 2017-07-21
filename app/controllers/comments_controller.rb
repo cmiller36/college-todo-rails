@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
         flash[:notice] = 'Comment deleted.'
-        format.html {redirect_to @story}
+        format.html { redirect_to @story }
     end 
   end
 
