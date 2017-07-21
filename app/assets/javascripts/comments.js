@@ -7,7 +7,7 @@ var Comment = function(attributes) {
 
 Comment.prototype.deleteLink = function() {
   var output = '<a class="btn btn-danger btn-xs" data-confirm="Are you sure you want to delete?" rel="nofollow" data-method="delete" href="/stories/:story_id/comments/' + this.id + '">';
-    output += "x";
+    output += '<span class="glyphicon glyphicon-remove"></span>';
     output += '</a>';
   return output;
 }
@@ -15,7 +15,7 @@ Comment.prototype.deleteLink = function() {
 Comment.prototype.renderComment = function() {
   var html = "";
   html += '<ol class="list-unstyled" id="comment-" + comment.id >';
-  html += '<li><strong>' +  this.user.username + '</strong>' + " " + ':' + " " + '<p>' + this.content + " " + this.created_at + this.deleteLink() +'</p></li>';
+  html += '<li><strong>' +  this.user.username + '</strong>' + " " + ':' + " " + this.content + " " + this.deleteLink() +'</li>';
   html += '</ol>';
   return html;
 };
