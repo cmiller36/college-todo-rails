@@ -6,7 +6,7 @@ var Comment = function(attributes) {
 };
 
 Comment.prototype.deleteLink = function() {
-  var output = '<a class="btn btn-danger btn-xs" data-confirm="Are you sure you want to delete this comment?" rel="nofollow" data-method="delete" href="/comments/' + this.id + '">';
+  var output = '<a class="btn btn-danger btn-xs" data-confirm="Are you sure you want to delete?" rel="nofollow" data-method="delete" href="/stories/:story_id/comments/' + this.id + '">';
     output += "x";
     output += '</a>';
   return output;
