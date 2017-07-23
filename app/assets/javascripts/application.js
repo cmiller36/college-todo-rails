@@ -13,7 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require story_index
-//= require story_show
-//= require comments
+//= require_tree .
 
