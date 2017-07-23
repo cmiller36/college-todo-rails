@@ -1,4 +1,8 @@
 $(function(){
+
+  $.ajaxSetup({
+        cache: false,
+    });
   
     $.get(this.href).success(function(json){
 
