@@ -16,7 +16,6 @@ Story.prototype.renderStory = function() {
   return text;
 };
 
-
 var getStory = function() {
     $.ajax({
       url: this.href,
@@ -32,3 +31,4 @@ var getStory = function() {
 $(document).ready(function() {
   getStory();
 })
+
