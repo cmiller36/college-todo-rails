@@ -20,7 +20,6 @@ Comment.prototype.renderComment = function() {
   return html;
 };
 
-
  var attachListener = function() {
     $(document).on('submit', 'form#new_comment', function(event){
     event.preventDefault();
